@@ -1,0 +1,67 @@
+<mat-toolbar color="primary">
+    <mat-icon>calculate</mat-icon>
+    <span>Universal Discount Calculator</span>
+  </mat-toolbar>
+  
+  <mat-card class="container">
+    <h2 class="title">Calculate Your Discount</h2>
+  
+    <!-- Base Price Input Field -->
+    <mat-form-field appearance="outline">
+      <mat-label>Base Price</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="basePrice"
+        name="basePrice"
+        placeholder="Enter base price"
+        required
+        min="0.01"
+        (ngModelChange)="calculateFinalPrice()"
+        #basePriceInput="ngModel"
+      >
+      <mat-error *ngIf="basePriceInput.errors?.['required']">
+        Base price is required
+      </mat-error>
+      <mat-error *ngIf="basePriceInput.errors?.['min']">
+        Base price must be greater than 0
+      </mat-error>
+    </mat-form-field>
+  
+    <!-- Discount Input Field -->
+    <mat-form-field appearance="outline">
+      <mat-label>Discount (%)</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="discount"
+        name="discount"
+        placeholder="Enter discount percentage"
+        required
+        min="0"
+        max="100"
+        (ngModelChange)="calculateFinalPrice()"
+        #discountInput="ngModel"
+      >
+      <mat-error *ngIf="discountInput.errors?.['required']">
+        Discount is required
+      </mat-error>
+      <mat-error *ngIf="discountInput.errors?.['min']">
+        Discount cannot be negative
+      </mat-error>
+      <mat-error *ngIf="discountInput.errors?.['max']">
+        Discount cannot exceed 100%
+      </mat-error>
+    </mat-form-field>
+  
+    <!-- Display the final price after discount -->
+    <div *ngIf="finalPrice !== null" class="result">
+      <h3>Final Price: {{ finalPrice | currency }}</h3>
+    </div>
+  </mat-card>
+  
+  <!-- Footer -->
+  <footer>
+    <p>© 2024 Universal Discount Calculator</p>
+  </footer>
+  

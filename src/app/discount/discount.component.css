@@ -1,0 +1,42 @@
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    text-align: center;
+    color: #3f51b5;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  mat-toolbar {
+    background-color: #3f51b5;
+    color: white;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .result {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 18px;
+    color: #388e3c;
+  }
+  
+  h3 {
+    color: #388e3c;
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 14px;
+    color: #757575;
+  }
+  
